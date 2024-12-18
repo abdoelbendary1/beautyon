@@ -94,3 +94,34 @@ class ScreenWidgets {
     );
   }
 }
+class OrWithLines extends StatelessWidget {
+  const OrWithLines({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: Divider(
+            color: Colors.grey,
+            thickness: 1,
+            indent: 10.w,
+            endIndent: 10.w,
+          ),
+        ),
+        Text(
+          "Or",
+          style: AppTextStyles.boldTextStyle(18, AppColors.darkGrayColor),
+        ),
+        Expanded(
+          child: Divider(
+            color: Colors.grey,
+            thickness: 1,
+            indent: 10.w,
+            endIndent: 10.w,
+          ),
+        ),
+      ],
+    );
+  }
+}

@@ -1,3 +1,5 @@
+import 'package:beautyon/Core/Components/FormError.dart';
+import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
 import 'package:beautyon/beautyonApp.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
@@ -69,18 +71,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
             alignLabelWithHint: false,
             label: Text(
               widget.label,
-              /*  style: AppTextStyles.hintStyle.copyWith(
-                color: AppColors.blackColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-              ), */
             ),
             // Prefix Icon
-            prefixIcon:ImageIcon(AssetImage(widget.icon)),
+            prefixIcon: ImageIcon(AssetImage(widget.icon)),
 
             // Password Visibility Toggle
             suffixIcon: widget.isPassword
-                ? IconButton(
+                ? GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                    child: ImageIcon(AssetImage(
+                        _obscureText ? AppIcons.eyeShow : AppIcons.eyeHide)))
+                : null,
+
+            /*   IconButton(
                     icon: Icon(
                       _obscureText ? Icons.visibility_off : Icons.visibility,
                       color: AppColors.darkGrayColor,
@@ -91,7 +98,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       });
                     },
                   )
-                : null,
+                : null, */
 
             // Hint Text
             hintText: widget.hintText,
@@ -99,9 +106,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
               color: AppColors.darkGrayColor,
               fontSize: 14,
             ),
+            /*   errorText: widget.errorText,
+            error: FormErrorWidget(errorMessage: widget.errorText), */
 
             // Border Style
             filled: true,
+            errorStyle: AppTextStyles.boldTextStyle(14, Colors.red),
             fillColor: AppColors.whiteColor,
             /*   border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -137,9 +147,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 width: 1.5,
               ),
             ),
-
-            // Error Text
-            errorText: widget.errorText,
           ),
         ),
       ],

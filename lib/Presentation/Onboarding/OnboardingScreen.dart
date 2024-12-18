@@ -95,13 +95,18 @@ class OnBoardingScreen extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        FadeInImage.assetNetwork(
-          placeholder: "assets/images/loading_placeholder.png", // Add a lightweight placeholder image
+        Image.asset(
+          path,
+          fit: BoxFit.cover,
+        ),
+        /*  FadeInImage.assetNetwork(
+          placeholder:
+              "assets/images/onbarding1.png", // Add a lightweight placeholder image
           image: path,
           fit: BoxFit.cover,
-          fadeInDuration: const Duration(milliseconds: 300),
-          fadeOutDuration: const Duration(milliseconds: 300),
-        ),
+          /* fadeInDuration: const Duration(milliseconds: 300),
+          fadeOutDuration: const Duration(milliseconds: 300), */
+        ), */
         Container(
           color: Colors.black.withOpacity(0.5), // Black overlay
         ),

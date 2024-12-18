@@ -29,23 +29,31 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   auto_size_text: null
+  bloc: ^8.1.4
+  carousel_slider: ^5.0.0
   country_code_picker: ^3.1.0
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
   flutter_image_compress: ^2.3.0
+  flutter_launcher_icons: ^0.14.2
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.4.3
   flutter_rating_bar: ^4.0.1
-  flutter_svg: null
+  flutter_staggered_grid_view: ^0.7.0
+  flutter_svg: ^2.0.16
   font_awesome_flutter: ^10.8.0
+  get_it: ^8.0.3
   google_fonts: null
   intl: any
   introduction_screen: ^3.1.14
   pinput: ^5.0.0
   screenutil_module: ^1.1.0
+  sliding_up_panel2: ^3.3.0+1
 
 dev_dependencies:
-  flutter_launcher_icons: null
   flutter_lints: null
   flutter_test:
     sdk: flutter
@@ -57,6 +65,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/images/logo.png
+    - assets/images/splash.png
 
 flutter_launcher_icons:
   android: true
@@ -65,7 +75,16 @@ flutter_launcher_icons:
   remove_alpha: true
   adaptive_icon_background: "#81297B"
   adaptive_icon_foreground: "assets/images/logo.png"
-
+flutter_native_splash:
+  color: "#81297B" # Background color of the splash screen
+  image: assets/images/splash.png # Path to your splash screen image
+  android:
+    enable: true
+    android12:
+      icon_background_color: "#ffffff" # Android 12+ background color for splash
+      icon_foreground_image: assets/images/splash.png
+  ios: true
+  web: false # Splash not needed for web
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

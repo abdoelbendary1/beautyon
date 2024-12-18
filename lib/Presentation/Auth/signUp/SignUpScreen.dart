@@ -4,14 +4,20 @@ import 'package:beautyon/Core/Components/PhoneNumberField.dart';
 import 'package:beautyon/Core/Components/SocialLoginButtons.dart';
 import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
-import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
+import 'package:beautyon/Core/Utils/Validators/validators.dart';
+import 'package:beautyon/Core/service/service_locator.dart';
+import 'package:beautyon/Data/model/signUpRequest.dart';
+import 'package:beautyon/Presentation/Auth/Forgot_password/widgets/screen_widgets.dart';
+import 'package:beautyon/Presentation/Auth/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+  SignUpScreen({super.key});
+  AuthCubit cubit = getIt<AuthCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,41 +36,66 @@ class SignUpScreen extends StatelessWidget {
               AppSpacing.large, // 30.h spacing
 
               // Full Name Field
-              CustomTextField(
-                label: "Full Name",
-                hintText: "Enter Your Name",
-                icon: AppIcons.person,
-              ),
-              AppSpacing.medium, // 20.h spacing
+              BlocConsumer<AuthCubit, AuthState>(
+                bloc: cubit,
+                listener: (context, state) {
+                  // TODO: implement listener
+                },
+                builder: (context, state) {
+                  return Form(
+                    key: cubit.signUpFormState,
+                    child: Column(
+                      children: [
+                        CustomTextField(
+                          controller: cubit.signUpUsernameController,
+                          validator: (value) {
+                            return AppValidators.validateUsername(value);
+                          },
+                          label: "Full Name",
+                          hintText: "Enter Your Name",
+                          icon: AppIcons.person,
+                        ),
+                        AppSpacing.medium, // 20.h spacing
 
-              // Email Field
-              CustomTextField(
-                label: "Email",
-                hintText: "Enter Your Email",
-                icon: AppIcons.email,
-              ),
-              AppSpacing.medium, // 20.h spacing
+                        // Email Field
+                        CustomTextField(
+                          label: "Email",
+                          hintText: "Enter Your Email",
+                          icon: AppIcons.email,
+                          controller: cubit.signUpEmailController,
+                          validator: (value) {
+                            return AppValidators.validateEmail(value);
+                          },
+                        ),
+                        AppSpacing.medium, // 20.h spacing
 
-              // Password Field
-              CustomTextField(
-                label: "Password",
-                hintText: "Enter Your Password",
-                icon: AppIcons.lock,
-                isPassword: true,
-              ),
-              AppSpacing.medium, // 20.h spacing
+                        // Password Field
+                        CustomTextField(
+                          label: "Password",
+                          hintText: "Enter Your Password",
+                          icon: AppIcons.lock,
+                          isPassword: true,
+                          controller: cubit.signUpPasswordController,
+                          validator: (value) {
+                            return AppValidators.validatePassword(value);
+                          },
+                        ),
+                        AppSpacing.medium, // 20.h spacing
 
-              // Phone Number Field
-              PhoneNumberField(
-                label: "Phone Number",
-                phoneController: TextEditingController(),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter your phone number";
-                  }
-                  return null;
+                        // Phone Number Field
+                        PhoneNumberField(
+                          label: "Phone Number",
+                          phoneController: cubit.signUpPhoneController,
+                          /*   validator: (value) {
+                            return AppValidators.validatePhone(value);
+                          }, */
+                        ),
+                      ],
+                    ),
+                  );
                 },
               ),
+
               AppSpacing.large, // 30.h spacing
 
               // Sign Up Button
@@ -73,7 +104,15 @@ class SignUpScreen extends StatelessWidget {
                 enabledColor: AppColors.primaryColor,
                 text: "Sign up",
                 onPressed: () {
-                  _navigateToAccCreated(context);
+                  cubit.signUp(
+                    signUpRequest: SignUpRequest(
+                      email: cubit.signUpEmailController.text,
+                      pass: cubit.signUpPasswordController.text,
+                      username: cubit.signUpUsernameController.text,
+                      phone: cubit.signUpPhoneController.text,
+                    ),
+                    context: context,
+                  );
                 },
               ),
               AppSpacing.medium, // 20.h spacing
@@ -94,7 +133,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      _navigateToSignInScreen(context);
+                      cubit.navigateToSignInScreen(context);
                     },
                     child: Text(
                       "Sign in",
@@ -109,7 +148,9 @@ class SignUpScreen extends StatelessWidget {
 
               // Login as a guest
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  cubit.navigateToMainApp(context);
+                },
                 child: Text(
                   "Login as a guest",
                   style: AppTextStyles.linkStyle.copyWith(
@@ -123,44 +164,7 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
-
-  void _navigateToSignInScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
-  }
-
-  void _navigateToAccCreated(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.accCreated);
-  }
 }
 
-class OrWithLines extends StatelessWidget {
-  const OrWithLines({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Divider(
-            color: Colors.grey,
-            thickness: 1,
-            indent: 10.w,
-            endIndent: 10.w,
-          ),
-        ),
-        Text(
-          "Or",
-          style: AppTextStyles.boldTextStyle(18, AppColors.darkGrayColor),
-        ),
-        Expanded(
-          child: Divider(
-            color: Colors.grey,
-            thickness: 1,
-            indent: 10.w,
-            endIndent: 10.w,
-          ),
-        ),
-      ],
-    );
-  }
-}
+

@@ -5,6 +5,9 @@ import 'package:beautyon/Presentation/Auth/Forgot_password/Screens/verify_code/V
 import 'package:beautyon/Presentation/Auth/Sign_in/SignInScreen.dart';
 import 'package:beautyon/Presentation/Auth/signUp/SignUpScreen.dart';
 import 'package:beautyon/Presentation/Auth/signUp/acc_created.dart';
+import 'package:beautyon/Presentation/Home/Tabs/Screens/Service/ServiceScreenDetails.dart';
+import 'package:beautyon/Presentation/Home/Tabs/Screens/home/AboutSalon/Screens/salon_about_screen.dart';
+import 'package:beautyon/Presentation/Home/bottomNavScreen.dart';
 import 'package:beautyon/Presentation/Onboarding/OnboardingScreen.dart';
 import 'package:beautyon/Presentation/splash/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +23,9 @@ class AppRoutes {
   static const String resetPass = '/resetPass';
   static const String passChanged = '/passChanged';
   static const String accCreated = '/accCreated';
+  static const String mainScreen = '/mainScreen';
+  static const String aboutSalon = '/aboutSalon';
+  static const String serviceDetails = '/serviceDetails';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -38,13 +44,13 @@ class AppRoutes {
       case signIn:
         return MaterialPageRoute(
           builder: (context) {
-            return const SignInScreen();
+            return SignInScreen();
           },
         );
       case signUp:
         return MaterialPageRoute(
           builder: (context) {
-            return const SignUpScreen();
+            return SignUpScreen();
           },
         );
       case forgotPass:
@@ -64,7 +70,7 @@ class AppRoutes {
       case resetPass:
         return MaterialPageRoute(
           builder: (context) {
-            return ResetPasswordScreen();
+            return const ResetPasswordScreen();
           },
         );
       case passChanged:
@@ -77,6 +83,24 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) {
             return const AccountCreatedScreen();
+          },
+        );
+      case mainScreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            return BottomNavScreen();
+          },
+        );
+      case aboutSalon:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const SalonScreenWithPanel();
+          },
+        );
+      case serviceDetails:
+        return MaterialPageRoute(
+          builder: (context) {
+            return ServiceDetailsScreen();
           },
         );
 
