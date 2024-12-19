@@ -1,6 +1,10 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
+import 'package:beautyon/beautyonApp.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:screenutil_module/main.dart';
 
 import '../../../../../../Core/Utils/Assets/icons/app_icons.dart';
 
@@ -38,7 +42,7 @@ class SearchBarWidget extends StatelessWidget {
               BlendMode
                   .srcIn, // This mode makes the image color match the filter
             ),
-            child: ImageIcon(
+            child: const ImageIcon(
               AssetImage(AppIcons.search),
             ),
           ),
@@ -47,16 +51,15 @@ class SearchBarWidget extends StatelessWidget {
           filled: true,
           fillColor: fillColor,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: borderColor, width: 2),
+            borderRadius: AppBorderRadius.medium,
+            borderSide: BorderSide(color: borderColor, width: 2.w),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide:
-                BorderSide(color: borderColor.withOpacity(0.8), width: 2),
+                BorderSide(color: borderColor.withOpacity(0.8), width: 2.w),
           ),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+          contentPadding: AppPadding.medium,
         ),
       ),
     );

@@ -1,11 +1,14 @@
 // Importing necessary packages
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:screenutil_module/main.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -24,11 +27,11 @@ class OnBoardingScreen extends StatelessWidget {
           "Go!",
           style: AppTextStyles.boldTextStyle(18, AppColors.lightGray),
         ),
-        dotsDecorator: const DotsDecorator(
+        dotsDecorator: DotsDecorator(
           size: Size(10.0, 10.0),
           color: AppColors.lightGray,
           activeColor: AppColors.primaryColor,
-          activeSize: Size(40.0, 10.0),
+          activeSize: Size(40.0.w, 10.0.h),
           activeShape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25.0)),
           ),
@@ -116,11 +119,11 @@ class OnBoardingScreen extends StatelessWidget {
 
   // Page decoration helper
   PageDecoration _getPageDecoration() {
-    return const PageDecoration(
+    return PageDecoration(
       imagePadding: EdgeInsets.zero,
-      bodyPadding: EdgeInsets.all(16),
-      titlePadding: EdgeInsets.only(top: 50, bottom: 10),
-      contentMargin: EdgeInsets.all(0),
+      bodyPadding: AppPadding.medium,
+      titlePadding: AppPadding.only(top: 50, bottom: 10),
+      contentMargin: AppPadding.all(0),
       fullScreen: true,
       pageColor: Colors.transparent,
     );
@@ -128,6 +131,6 @@ class OnBoardingScreen extends StatelessWidget {
 
   // Navigation helper function
   void _navigateToSignInScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 }

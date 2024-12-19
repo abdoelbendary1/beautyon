@@ -1,4 +1,5 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      padding: AppPadding.symmetric(horizontal: 16, vertical: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

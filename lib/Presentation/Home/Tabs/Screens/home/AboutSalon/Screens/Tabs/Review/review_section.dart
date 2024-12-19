@@ -1,4 +1,5 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Domain/Entity/review_entity.dart';
@@ -20,7 +21,7 @@ class ReviewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: AppPadding.medium,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,8 +32,8 @@ class ReviewSection extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: 'Review ',
-                    style: AppTextStyles.boldTextStyle(
-                        18, AppColors.blackColor),
+                    style:
+                        AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
                     children: [
                       TextSpan(
                         text: '(${reviews.length})',
@@ -57,8 +58,7 @@ class ReviewSection extends StatelessWidget {
                 ),
               ],
             ),
-            AppSpacing.medium,
-    
+
             // Reviews List
             ListView.builder(
               shrinkWrap: true,
@@ -78,8 +78,7 @@ class ReviewSection extends StatelessWidget {
   // Review Card Widget
   Widget _buildReviewCard(ReviewEntity review) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(12),
+      padding: AppPadding.symmetric(vertical: 16),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(12),

@@ -1,5 +1,7 @@
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/widgets/screen_widgets.dart';
@@ -25,7 +27,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: AppPadding.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -126,11 +128,11 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
 
   // Navigation to Sign In
   void _navigateToSignIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 
   // Navigation to Reset Password
   void _navigateToResetPass(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.resetPass);
+    Navigator.pushReplacementNamed(context, AppPath.resetPass);
   }
 }

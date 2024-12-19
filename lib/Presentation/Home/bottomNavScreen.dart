@@ -1,7 +1,7 @@
 import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
-import 'package:beautyon/Data/model/bottomAppBarItem.dart';
+import 'package:beautyon/Data/Model/bottomAppBarItem.dart';
 import 'package:beautyon/Presentation/Home/Tabs/cubit/tab_cubit.dart';
 import 'package:beautyon/Presentation/Home/Tabs/tab_widgets_helper.dart';
 import 'package:flutter/material.dart';

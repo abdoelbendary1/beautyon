@@ -1,8 +1,8 @@
 import 'package:beautyon/Core/Components/CustomButton.dart';
-import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
-import 'package:beautyon/Domain/Entity/salon_entity.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/AboutSalon/Helpers/about_salon_helper.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/AboutSalon/Screens/Tabs/Gallery/gallery_tab_screen.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/AboutSalon/Screens/Tabs/Packages/package_screen.dart';
@@ -57,10 +57,7 @@ class _SalonScreenWithPanelState extends State<SalonScreenWithPanel> {
           },
           minHeight: MediaQuery.of(context).size.height * 0.4,
           maxHeight: MediaQuery.of(context).size.height * 0.85,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
+          borderRadius: AppBorderRadius.only(topLeft: 20, topRight: 20),
           body: const CustomHeaderAbout(),
           /* header: _buildImageHeader(), */
         ),
@@ -70,7 +67,7 @@ class _SalonScreenWithPanelState extends State<SalonScreenWithPanel> {
 
   Widget _buildPanelBody(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 4.h),
+      padding: AppPadding.symmetric(horizontal: 8, vertical: 4),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.85,
         child: Column(

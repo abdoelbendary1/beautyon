@@ -1,3 +1,4 @@
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
 import 'package:beautyon/Presentation/Auth/cubit/auth_cubit.dart';
@@ -46,7 +47,7 @@ class BeautyAppUserEdition extends StatelessWidget {
           splitScreenMode: true,
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: AppRoutes.splash,
+            initialRoute: AppPath.splash,
             onGenerateRoute: AppRoutes.generateRoute,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,

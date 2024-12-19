@@ -1,6 +1,8 @@
 import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/widgets/screen_widgets.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class ResetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: AppPadding.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -66,10 +68,10 @@ class ResetPasswordScreen extends StatelessWidget {
   }
 
   void _navigateToSignIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 
   void _navigateToPassChanged(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.passChanged);
+    Navigator.pushReplacementNamed(context, AppPath.passChanged);
   }
 }

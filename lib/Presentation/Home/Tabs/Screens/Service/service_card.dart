@@ -1,4 +1,6 @@
 import 'package:beautyon/Core/Components/CustomButton.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/Service/ServiceScreenDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
-import 'package:beautyon/Data/model/serviceEntity.dart';
+import 'package:beautyon/Data/Model/serviceEntity.dart';
 
 class ServiceCard extends StatelessWidget {
   final ServiceEntity service;
@@ -50,17 +52,14 @@ class ServiceCard extends StatelessWidget {
             service: service,
           ),
         )
-        /*  AppRoutes.serviceDetails,
+        /*  AppPath.serviceDetails,
       arguments: service, */
         );
   }
 
   Widget _buildImage() {
     return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(12),
-        bottomLeft: Radius.circular(12),
-      ),
+      borderRadius: AppBorderRadius.only(topLeft: 15, bottomLeft: 15),
       child: Image.asset(
         service.imageUrl!,
         width: 120.w,
@@ -72,7 +71,7 @@ class ServiceCard extends StatelessWidget {
   Widget _buildContent(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+        padding: AppPadding.symmetric(horizontal: 8, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

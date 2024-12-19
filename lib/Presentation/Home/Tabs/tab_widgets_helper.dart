@@ -1,5 +1,5 @@
 import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
-import 'package:beautyon/Data/model/bottomAppBarItem.dart';
+import 'package:beautyon/Data/Model/bottomAppBarItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -1,8 +1,12 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Domain/Entity/specilests_entity.dart';
+import 'package:beautyon/beautyonApp.dart';
 import 'package:flutter/material.dart';
+import 'package:screenutil_module/main.dart';
 
 class SpecialistTabContent extends StatelessWidget {
   final List<SpecialistEntity> specialists;
@@ -13,7 +17,7 @@ class SpecialistTabContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+        padding: AppPadding.medium,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,7 +26,6 @@ class SpecialistTabContent extends StatelessWidget {
               'Specialist ( ${specialists.length} )',
               style: AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
             ),
-            AppSpacing.small,
 
             // Specialists List
             ListView.builder(
@@ -43,29 +46,22 @@ class SpecialistTabContent extends StatelessWidget {
   // Specialist Item Widget
   Widget _buildSpecialistItem(SpecialistEntity specialist) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(12),
+      margin: AppPadding.only(bottom: 8),
+      padding: AppPadding.symmetric(vertical: 16),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 5,
-            spreadRadius: 1,
-          ),
-        ],
+        borderRadius: AppBorderRadius.small,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Profile Image
           ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: AppBorderRadius.small,
             child: Image.asset(
               specialist.imageUrl,
-              height: 80,
-              width: 100,
+              height: 80.h,
+              width: 100.w,
               fit: BoxFit.cover,
             ),
           ),
@@ -92,7 +88,7 @@ class SpecialistTabContent extends StatelessWidget {
                     5,
                     (index) => Icon(
                       Icons.star,
-                      size: 18,
+                      size: 18.r,
                       color: index < specialist.rating
                           ? AppColors.primaryColor
                           : AppColors.lightGrayColor,

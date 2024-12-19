@@ -2,7 +2,9 @@ import 'package:beautyon/Core/Components/CustomButton.dart';
 import 'package:beautyon/Core/Components/reusable_screen.dart';
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
@@ -80,14 +82,14 @@ class FavouriteScreen extends StatelessWidget {
         ),
         AppSpacing.large,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+          padding: AppPadding.symmetric(horizontal: 16),
           child: Column(
             children: [
               CustomButton(
                 text: "Login",
                 onPressed: () => Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.signIn,
+                  AppPath.signIn,
                   (route) => false,
                 ),
                 isFilled: true,
@@ -100,7 +102,7 @@ class FavouriteScreen extends StatelessWidget {
                 text: "Sign Up",
                 onPressed: () => Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.signUp,
+                  AppPath.signUp,
                   (route) => false,
                 ),
                 isFilled: false, // Outlined

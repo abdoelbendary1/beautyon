@@ -1,5 +1,7 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,7 @@ class PasswordChangedScreen extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(20.w),
+          padding:AppPadding.large,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -93,6 +95,6 @@ class PasswordChangedScreen extends StatelessWidget {
 
   // Navigation to Sign In
   void _navigateToSignIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 }

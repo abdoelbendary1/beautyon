@@ -1,6 +1,8 @@
 import 'package:beautyon/Core/Components/CustomButton.dart';
 import 'package:beautyon/Core/Components/CustomTextField.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Domain/Entity/packages_entity.dart';
@@ -16,16 +18,18 @@ class PackageSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: AppPadding.symmetric(vertical: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header
-            Text(
-              'Package ( ${packages.length} )',
-              style: AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
+            Padding(
+              padding: AppPadding.symmetric(horizontal: 16),
+              child: Text(
+                'Package ( ${packages.length} )',
+                style: AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
+              ),
             ),
-            AppSpacing.medium,
 
             // Packages List
             ListView.builder(
@@ -46,11 +50,11 @@ class PackageSection extends StatelessWidget {
   // Package Card Widget
   Widget _buildPackageCard(PackageEntity package) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      padding: const EdgeInsets.all(12),
+      margin: AppPadding.only(bottom: 8),
+      padding: AppPadding.medium,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppBorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -67,8 +71,8 @@ class PackageSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
               package.imageUrl,
-              height: 80,
-              width: 80,
+              height: 80.h,
+              width: 80.w,
               fit: BoxFit.cover,
             ),
           ),

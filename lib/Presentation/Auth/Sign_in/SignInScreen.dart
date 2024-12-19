@@ -1,3 +1,4 @@
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/widgets/screen_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +13,7 @@ import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Validators/validators.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
-import 'package:beautyon/Data/model/loginDataModel.dart';
+import 'package:beautyon/Data/Model/loginDataModel.dart';
 import 'package:beautyon/Presentation/Auth/cubit/auth_cubit.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -25,7 +26,7 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: Padding(
-        padding: EdgeInsets.all(20.h),
+        padding: AppPadding.medium,
         child: SingleChildScrollView(
           child: BlocProvider(
             create: (_) => _authCubit,
@@ -102,7 +103,6 @@ class SignInScreen extends StatelessWidget {
         child: Text(
           "Forget Password?",
           style: AppTextStyles.linkStyle.copyWith(
-            fontSize: 16,
             color: AppColors.darkGrayColor,
           ),
         ),
@@ -146,7 +146,7 @@ class SignInScreen extends StatelessWidget {
           onTap: () => _authCubit.navigateToMainApp(context),
           child: Text(
             "Login as a guest",
-            style: AppTextStyles.linkStyle.copyWith(fontSize: 16),
+            style: AppTextStyles.linkStyle.copyWith(fontSize: 16.sp),
           ),
         ),
       ],

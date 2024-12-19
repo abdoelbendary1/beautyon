@@ -1,6 +1,7 @@
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
-import 'package:beautyon/Data/model/loginDataModel.dart';
-import 'package:beautyon/Data/model/signUpRequest.dart';
+import 'package:beautyon/Data/Model/loginDataModel.dart';
+import 'package:beautyon/Data/Model/signUpRequest.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -40,25 +41,25 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   void navigateToSignInScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 
   void navigateToAccCreated(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.accCreated);
+    Navigator.pushReplacementNamed(context, AppPath.accCreated);
   }
 
   void navigateToSignUpScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signUp);
+    Navigator.pushReplacementNamed(context, AppPath.signUp);
   }
 
   void navigateToForgotPass(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.forgotPass);
+    Navigator.pushReplacementNamed(context, AppPath.forgotPass);
   }
 
   void navigateToMainApp(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(
       context,
-      AppRoutes.mainScreen,
+      AppPath.mainScreen,
       (route) => false,
     );
   }

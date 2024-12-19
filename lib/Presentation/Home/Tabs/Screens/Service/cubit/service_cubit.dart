@@ -1,5 +1,5 @@
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
-import 'package:beautyon/Data/model/serviceEntity.dart';
+import 'package:beautyon/Data/Model/serviceEntity.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 

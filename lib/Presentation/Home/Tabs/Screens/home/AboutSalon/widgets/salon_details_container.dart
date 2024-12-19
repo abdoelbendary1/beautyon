@@ -1,8 +1,11 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Domain/Entity/salon_entity.dart';
+import 'package:beautyon/beautyonApp.dart';
 import 'package:flutter/material.dart';
+import 'package:screenutil_module/main.dart';
 
 class SalonDetailsContainer extends StatelessWidget {
   final SalonEntity salon;
@@ -12,7 +15,7 @@ class SalonDetailsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: AppPadding.small,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,7 +34,7 @@ class SalonDetailsContainer extends StatelessWidget {
                   5,
                   (index) => Icon(
                     Icons.star,
-                    size: 18,
+                    size: 18.sp,
                     color: index < salon.rating
                         ? AppColors.primaryColor
                         : AppColors.lightGrayColor,
@@ -52,8 +55,8 @@ class SalonDetailsContainer extends StatelessWidget {
           // Location
           Row(
             children: [
-              const Icon(Icons.location_on,
-                  size: 18, color: AppColors.darkGrayColor),
+              Icon(Icons.location_on,
+                  size: 18.sp, color: AppColors.darkGrayColor),
               AppSpacing.horizontalSpace(6),
               Text(
                 salon.location,
@@ -67,8 +70,7 @@ class SalonDetailsContainer extends StatelessWidget {
           // Working Hours
           Row(
             children: [
-              const Icon(Icons.schedule,
-                  size: 18, color: AppColors.darkGrayColor),
+              Icon(Icons.schedule, size: 18.sp, color: AppColors.darkGrayColor),
               AppSpacing.horizontalSpace(6),
               Text(
                 salon.workingHours,
@@ -82,8 +84,8 @@ class SalonDetailsContainer extends StatelessWidget {
           // Open/Closed Status
           Row(
             children: [
-              const Icon(Icons.storefront,
-                  size: 18, color: AppColors.primaryColor),
+              Icon(Icons.storefront,
+                  size: 18.sp, color: AppColors.primaryColor),
               AppSpacing.horizontalSpace(6),
               Text(
                 salon.isOpen ? '• Open' : '• Closed',

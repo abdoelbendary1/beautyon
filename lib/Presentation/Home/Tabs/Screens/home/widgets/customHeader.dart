@@ -1,5 +1,6 @@
 import 'package:beautyon/Core/Utils/Assets/icons/app_icons.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -47,7 +48,7 @@ class CustomHeader extends StatelessWidget {
           // SafeArea Content
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 8.h),
+              padding: AppPadding.symmetric(horizontal: 16, vertical: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -140,7 +141,7 @@ class CustomHeader extends StatelessWidget {
                       AppSpacing.horizontalSpace(8),
                       Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.purple, width: 2),
+                          border: Border.all(color: Colors.purple, width: 2.w),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: IconButton(

@@ -2,9 +2,10 @@ import 'package:beautyon/Core/Components/CustomButton.dart';
 import 'package:beautyon/Core/Components/custom_app_bar.dart';
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
-import 'package:beautyon/Data/model/serviceEntity.dart';
+import 'package:beautyon/Data/Model/serviceEntity.dart';
 import 'package:beautyon/Domain/Entity/review_entity.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/widgets/customSlider.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +74,9 @@ class ServiceDetailsScreen extends StatelessWidget {
 
   Padding buildButton() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      padding: AppPadding.symmetric(
+        horizontal: 8,
+      ),
       child: CustomButton(
         text: 'Book Now',
         enabledColor: AppColors.primaryColor,
@@ -91,7 +94,7 @@ class ServiceDetailsScreen extends StatelessWidget {
 
   Padding buildBody() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: AppPadding.medium,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -104,8 +107,7 @@ class ServiceDetailsScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(Icons.star,
-                      color: AppColors.primaryColor, size: 18),
+                  Icon(Icons.star, color: AppColors.primaryColor, size: 18.r),
                   Text(
                     '${service?.rating ?? 0.0} (${service?.reviewsCount})',
                     style: AppTextStyles.normalTextStyle(

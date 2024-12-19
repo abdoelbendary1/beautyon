@@ -34,7 +34,7 @@ class GoldenGlowSection extends StatelessWidget {
               height: 120.h,
             ),
           ),
-          AppSpacing.small,
+          AppSpacing.medium,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

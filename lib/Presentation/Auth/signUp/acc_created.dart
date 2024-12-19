@@ -1,3 +1,5 @@
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,7 +16,7 @@ class AccountCreatedScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(20.h),
+          padding: AppPadding.large,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -63,6 +65,6 @@ class AccountCreatedScreen extends StatelessWidget {
   }
 
   void _navigateToSignIn(BuildContext context) {
-    Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    Navigator.pushReplacementNamed(context, AppPath.signIn);
   }
 }

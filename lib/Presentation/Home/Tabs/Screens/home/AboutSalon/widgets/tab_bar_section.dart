@@ -1,7 +1,7 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:flutter/material.dart';
-
 
 class TabBarSection extends StatelessWidget {
   final List<String> tabs;
@@ -29,12 +29,14 @@ class TabBarSection extends StatelessWidget {
             return GestureDetector(
               onTap: () => onTabChanged(idx),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding: AppPadding.medium,
                 child: Text(
                   tab,
                   style: AppTextStyles.normalTextStyle(
                     14,
-                    selectedIndex == idx ? AppColors.primaryColor : AppColors.darkGrayColor,
+                    selectedIndex == idx
+                        ? AppColors.primaryColor
+                        : AppColors.darkGrayColor,
                   ),
                 ),
               ),

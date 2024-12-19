@@ -1,8 +1,8 @@
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   navigateToHome() {
     Future.delayed(const Duration(seconds: 5), () {
       // ignore: use_build_context_synchronously
-      Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+      Navigator.pushReplacementNamed(context, AppPath.onboarding);
     });
   }
 }

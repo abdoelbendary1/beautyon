@@ -1,3 +1,5 @@
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,9 +24,11 @@ class EmptyStateBody extends StatelessWidget {
           width: 200.w,
           fit: BoxFit.contain,
         ),
-        SizedBox(height: 20.h),
+        AppSpacing.verticalSpace(20),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          padding: AppPadding.symmetric(
+            horizontal: 24,
+          ),
           child: Text(
             message,
             textAlign: TextAlign.center,

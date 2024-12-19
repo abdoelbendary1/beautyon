@@ -1,3 +1,4 @@
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
@@ -45,7 +46,7 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
               Expanded(
                 flex: 4,
                 child: CountryCodePicker(
-                  padding: EdgeInsets.all(4.w),
+                  padding: AppPadding.all(4),
                   textOverflow: TextOverflow.ellipsis,
                   onChanged: (country) {
                     setState(() {
@@ -79,7 +80,9 @@ class _PhoneNumberFieldState extends State<PhoneNumberField> {
                       fontSize: 14.sp,
                     ),
                     border: InputBorder.none,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                    /*  contentPadding: AppPadding.symmetric(
+                      horizontal: 0,
+                    ), */
                     errorText: widget.errorText,
                   ),
                 ),

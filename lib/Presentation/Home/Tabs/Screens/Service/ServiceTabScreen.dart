@@ -1,9 +1,12 @@
 import 'package:beautyon/Core/Components/reusable_screen.dart';
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
+import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
+import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
-import 'package:beautyon/Data/model/serviceEntity.dart';
+import 'package:beautyon/Data/Model/serviceEntity.dart';
 import 'package:beautyon/Domain/Entity/customer_type_entity.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/Service/cubit/Customer_type_state.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/Service/cubit/customer_selcetor_cubit.dart';
@@ -36,11 +39,11 @@ class ServiceScreen extends StatelessWidget {
           nonEmptyBody: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding: AppPadding.medium,
                 child: Text("Customer Type",
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: AppTextStyles.normalTextStyle(
+                        18, AppColors.blackColor)),
               ),
               BlocBuilder<CustomerTypeSelectorCubit, CustomerTypeState>(
                 bloc: customerTypeSelectorCubit,
@@ -52,11 +55,12 @@ class ServiceScreen extends StatelessWidget {
                   );
                 },
               ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+              Padding(
+                padding:
+                    AppPadding.only(left: 16, right: 16, top: 8, bottom: 8),
                 child: Text("Choose Service",
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: AppTextStyles.normalTextStyle(
+                        18, AppColors.blackColor)),
               ),
               BlocBuilder<ServiceCubit, ServiceState>(
                 builder: (context, state) {
@@ -76,7 +80,7 @@ class ServiceScreen extends StatelessWidget {
       child: ListView.builder(
         itemCount: services.length,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: AppPadding.small,
           child: ServiceCard(
             service: services[index],
             onAddToFavorites: () {},

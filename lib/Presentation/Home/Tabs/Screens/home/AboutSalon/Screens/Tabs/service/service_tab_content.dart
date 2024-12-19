@@ -1,8 +1,11 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
-import 'package:beautyon/Data/model/serviceEntity.dart';
+import 'package:beautyon/Data/Model/serviceEntity.dart';
 import 'package:flutter/material.dart';
+import 'package:screenutil_module/main.dart';
 
 class ServiceTabContent extends StatelessWidget {
   final List<ServiceEntity> services;
@@ -13,7 +16,7 @@ class ServiceTabContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+        padding: AppPadding.medium,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -22,7 +25,6 @@ class ServiceTabContent extends StatelessWidget {
               'Service ( ${services.length} )',
               style: AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
             ),
-            AppSpacing.small,
 
             // Service List
             ListView.builder(
@@ -43,11 +45,11 @@ class ServiceTabContent extends StatelessWidget {
   // Service Item Widget
   Widget _buildServiceItem(ServiceEntity service) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      margin: AppPadding.only(bottom: 8),
+      padding: AppPadding.symmetric(vertical: 8),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppBorderRadius.small,
       ),
       child: Row(
         children: [
@@ -56,8 +58,8 @@ class ServiceTabContent extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
               service.imageUrl!,
-              height: 50,
-              width: 80,
+              height: 50.h,
+              width: 80.w,
               fit: BoxFit.cover,
             ),
           ),

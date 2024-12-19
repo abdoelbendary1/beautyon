@@ -1,3 +1,4 @@
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/Screens/Forgot_pass/ForgotPasswordScreen.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/Screens/changed_pass_succes/PasswordChangedScreen.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/Screens/reset_pass/ResetPasswordScreen.dart';
@@ -14,52 +15,39 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
-  static const String splash = '/';
-  static const String signIn = '/signIn';
-  static const String signUp = '/signUp';
-  static const String onboarding = '/onboarding';
-  static const String forgotPass = '/forgotPass';
-  static const String verifyCode = '/verifyCode';
-  static const String resetPass = '/resetPass';
-  static const String passChanged = '/passChanged';
-  static const String accCreated = '/accCreated';
-  static const String mainScreen = '/mainScreen';
-  static const String aboutSalon = '/aboutSalon';
-  static const String serviceDetails = '/serviceDetails';
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case splash:
+      case AppPath.splash:
         return MaterialPageRoute(
           builder: (context) {
             return const SplashScreen();
           },
         );
-      case onboarding:
+      case AppPath.onboarding:
         return MaterialPageRoute(
           builder: (context) {
             return const OnBoardingScreen();
           },
         );
-      case signIn:
+      case AppPath.signIn:
         return MaterialPageRoute(
           builder: (context) {
             return SignInScreen();
           },
         );
-      case signUp:
+      case AppPath.signUp:
         return MaterialPageRoute(
           builder: (context) {
             return SignUpScreen();
           },
         );
-      case forgotPass:
+      case AppPath.forgotPass:
         return MaterialPageRoute(
           builder: (context) {
             return const ForgotPasswordScreen();
           },
         );
-      case verifyCode:
+      case AppPath.verifyCode:
         return MaterialPageRoute(
           builder: (context) {
             return const VerifyCodeScreen(
@@ -67,37 +55,37 @@ class AppRoutes {
             );
           },
         );
-      case resetPass:
+      case AppPath.resetPass:
         return MaterialPageRoute(
           builder: (context) {
             return const ResetPasswordScreen();
           },
         );
-      case passChanged:
+      case AppPath.passChanged:
         return MaterialPageRoute(
           builder: (context) {
             return const PasswordChangedScreen();
           },
         );
-      case accCreated:
+      case AppPath.accCreated:
         return MaterialPageRoute(
           builder: (context) {
             return const AccountCreatedScreen();
           },
         );
-      case mainScreen:
+      case AppPath.mainScreen:
         return MaterialPageRoute(
           builder: (context) {
             return BottomNavScreen();
           },
         );
-      case aboutSalon:
+      case AppPath.aboutSalon:
         return MaterialPageRoute(
           builder: (context) {
             return const SalonScreenWithPanel();
           },
         );
-      case serviceDetails:
+      case AppPath.serviceDetails:
         return MaterialPageRoute(
           builder: (context) {
             return ServiceDetailsScreen();

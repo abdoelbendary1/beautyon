@@ -1,7 +1,10 @@
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
+import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/cubit/home_cubit.dart';
 import 'package:beautyon/Presentation/Home/Tabs/Screens/home/widgets/GoldenGlowSection.dart';
@@ -39,16 +42,16 @@ class HomeTabHelper {
       delegate: SliverChildListDelegate(
         [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+            padding: AppPadding.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppSpacing.small,
                 CustomSliderSection(cubit: cubit),
                 AppSpacing.medium,
-                const Text(
+                Text(
                   'Explore the Salon',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: AppTextStyles.boldTextStyle(18, AppColors.blackColor),
                 ),
                 AppSpacing.small,
                 GoldenGlowSection(
@@ -58,7 +61,7 @@ class HomeTabHelper {
                       "Welcome to Golden Glow, your one-stop destination for beauty and relaxation. We offer premium services.",
                   rating: "4.5 (100)",
                   onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.aboutSalon);
+                    Navigator.pushNamed(context, AppPath.aboutSalon);
                   },
                 ),
                 AppSpacing.large,

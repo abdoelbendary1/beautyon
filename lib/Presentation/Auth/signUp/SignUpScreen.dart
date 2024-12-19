@@ -1,3 +1,4 @@
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Presentation/Auth/Forgot_password/widgets/screen_widgets.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/Utils/Validators/validators.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
-import 'package:beautyon/Data/model/signUpRequest.dart';
+import 'package:beautyon/Data/Model/signUpRequest.dart';
 import 'package:beautyon/Presentation/Auth/cubit/auth_cubit.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          padding: AppPadding.medium,
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,7 +116,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "Enter Your Name",
                 icon: AppIcons.person,
               ),
-              SizedBox(height: 20.h),
+              AppSpacing.medium,
               CustomTextField(
                 label: "Email",
                 hintText: "Enter Your Email",
@@ -123,7 +124,7 @@ class SignUpScreen extends StatelessWidget {
                 controller: cubit.signUpEmailController,
                 validator: AppValidators.validateEmail,
               ),
-              SizedBox(height: 20.h),
+              AppSpacing.medium,
               CustomTextField(
                 label: "Password",
                 hintText: "Enter Your Password",
@@ -132,7 +133,7 @@ class SignUpScreen extends StatelessWidget {
                 controller: cubit.signUpPasswordController,
                 validator: AppValidators.validatePassword,
               ),
-              SizedBox(height: 20.h),
+              AppSpacing.medium,
               PhoneNumberField(
                 label: "Phone Number",
                 phoneController: cubit.signUpPhoneController,
@@ -156,9 +157,7 @@ class SignUpScreen extends StatelessWidget {
           onTap: () => cubit.navigateToSignInScreen(context),
           child: Text(
             "Sign in",
-            style: AppTextStyles.linkStyle.copyWith(
-              fontSize: 14,
-            ),
+            style: AppTextStyles.linkStyle,
           ),
         ),
       ],

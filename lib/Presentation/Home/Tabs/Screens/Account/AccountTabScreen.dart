@@ -2,7 +2,10 @@ import 'package:beautyon/Core/Components/CustomButton.dart';
 import 'package:beautyon/Core/Components/reusable_screen.dart';
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Routing/app_path.dart';
 import 'package:beautyon/Core/Utils/Routing/app_routes.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:beautyon/Core/service/service_locator.dart';
@@ -50,14 +53,14 @@ class AccountScreen extends StatelessWidget {
       children: [
         AppSpacing.large, // Top spacing
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+          padding: AppPadding.symmetric(horizontal: 16),
           child: Column(
             children: [
               CustomButton(
                 text: "Login",
                 onPressed: () => Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.signIn,
+                  AppPath.signIn,
                   (route) => false,
                 ),
                 isFilled: true,
@@ -70,14 +73,14 @@ class AccountScreen extends StatelessWidget {
                 text: "Sign Up",
                 onPressed: () => Navigator.pushNamedAndRemoveUntil(
                   context,
-                  AppRoutes.signUp,
+                  AppPath.signUp,
                   (route) => false,
                 ),
                 isFilled: false, // Outlined
                 isEnabled: true,
                 enabledColor: AppColors.primaryColor,
               ),
-              SizedBox(height: 20.h),
+              AppSpacing.medium
             ],
           ),
         ),
@@ -94,13 +97,13 @@ class AccountScreen extends StatelessWidget {
   Widget _buildNonEmptyState(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 50.h), // Top spacing
+        AppSpacing.large,
         // Profile Section
         _buildProfileHeader(),
-        SizedBox(height: 20.h),
+        AppSpacing.medium,
         // Account Settings List
         _buildAccountOptions(context),
-        SizedBox(height: 20.h),
+        AppSpacing.medium,
         // Logout Button
         _buildLogoutButton(context),
       ],
@@ -232,9 +235,9 @@ class AccountScreen extends StatelessWidget {
       trailing: Icon(Icons.arrow_forward_ios, size: 16.r, color: Colors.grey),
       tileColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.r),
+        borderRadius: AppBorderRadius.circular(8),
       ),
-      contentPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 4.h),
+      contentPadding: AppPadding.symmetric(horizontal: 24, vertical: 4),
       visualDensity: VisualDensity.compact,
     );
   }
@@ -248,8 +251,7 @@ class AccountScreen extends StatelessWidget {
     required Function(bool) onChanged,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 4.h),
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: AppPadding.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.r),
@@ -266,7 +268,7 @@ class AccountScreen extends StatelessWidget {
           onChanged: onChanged,
         ),
         visualDensity: VisualDensity.compact,
-        contentPadding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+        contentPadding: AppPadding.symmetric(horizontal: 8, vertical: 4),
       ),
     );
   }
@@ -274,11 +276,13 @@ class AccountScreen extends StatelessWidget {
   // Logout Button
   Widget _buildLogoutButton(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: AppPadding.symmetric(
+        horizontal: 16,
+      ),
       child: ListTile(
         onTap: () => Navigator.pushNamedAndRemoveUntil(
           context,
-          AppRoutes.signIn,
+          AppPath.signIn,
           (route) => false,
         ),
         leading: Icon(Icons.logout, color: Colors.red),

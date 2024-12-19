@@ -1,4 +1,5 @@
 import 'package:beautyon/Core/Utils/Assets/images/app_images.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/beautyonApp.dart';
 import 'package:flutter/material.dart';
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
@@ -32,7 +33,7 @@ class CustomHeaderAbout extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 50.h),
+              padding: AppPadding.symmetric(horizontal: 16, vertical: 50),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

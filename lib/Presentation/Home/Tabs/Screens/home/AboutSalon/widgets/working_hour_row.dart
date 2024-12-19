@@ -1,7 +1,7 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:flutter/material.dart';
-
 
 class WorkingHourRow extends StatelessWidget {
   final String day;
@@ -18,11 +18,12 @@ class WorkingHourRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
+      padding: AppPadding.symmetric(vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(day, style: AppTextStyles.normalTextStyle(14, AppColors.blackColor)),
+          Text(day,
+              style: AppTextStyles.normalTextStyle(14, AppColors.blackColor)),
           Text(
             hours,
             style: AppTextStyles.normalTextStyle(

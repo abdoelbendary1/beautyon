@@ -1,9 +1,10 @@
 import 'package:beautyon/Core/Utils/Colors/app_colors.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_border_radius.dart';
+import 'package:beautyon/Core/Utils/Spacing/app_padding.dart';
 import 'package:beautyon/Core/Utils/Spacing/app_spacing.dart';
 import 'package:beautyon/Core/Utils/Text/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
 
 class GalleryTabContent extends StatelessWidget {
   final List<String> imageUrls;
@@ -13,7 +14,7 @@ class GalleryTabContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: AppPadding.medium,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,12 +23,12 @@ class GalleryTabContent extends StatelessWidget {
             'Gallery ( ${imageUrls.length} )',
             style: AppTextStyles.boldTextStyle(18, AppColors.primaryColor),
           ),
-          AppSpacing.medium,
 
           // Responsive Grid
           Expanded(
             child: MasonryGridView.builder(
-              gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+              gridDelegate:
+                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               itemCount: imageUrls.length,
@@ -46,7 +47,7 @@ class GalleryTabContent extends StatelessWidget {
   // Individual Image Item
   Widget _buildImageItem(String imageUrl) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: AppBorderRadius.small,
       child: Image.asset(
         imageUrl,
         fit: BoxFit.cover,
